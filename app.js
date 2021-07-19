@@ -2,7 +2,8 @@ const express = require("express");
 const createHttpError = require("http-errors");
 const morgan = require("morgan");
 const bodyparser = require("body-parser");
-require("./helpers/init_mongodb");
+require("./helpers/init_mongodb"); //database connection
+const UserRoute = require("./routes/user_routes");
 
 const PORT = process.env.PORT || 8888;
 const app = express();
@@ -13,8 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-
-const UserRoute = require("./routes/user_routes");
 
 app.get("/", async (req, res, next) => {
   res.send("HEllo From Student Portal");

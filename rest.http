@@ -5,11 +5,11 @@ GET http://localhost:8888/dbsnbsid
 
 ###
 POST http://localhost:8888/student/register
-Content-Type:appliaction/json,charset=utf-8
+content-type: application/json ;
 
 {
     "name":"chinu",
-    
+    "roll":123
 }
 
 ###
