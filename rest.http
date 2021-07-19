@@ -1,0 +1,16 @@
+GET http://localhost:8888
+
+###
+GET http://localhost:8888/dbsnbsid
+
+###
+POST http://localhost:8888/student/register
+Content-Type:appliaction/json,charset=utf-8
+
+{
+    "name":"chinu",
+    
+}
+
+###
+GET  http://localhost:8888/student/student-details
