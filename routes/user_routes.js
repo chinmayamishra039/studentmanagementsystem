@@ -36,7 +36,24 @@ router.post("/register", async (req, res, next) => {
   }
 });
 router.get("/student-details", async (req, res, next) => {
-  res.send("Here We can get Student Details");
+  try {
+    const display = await console.log(req.body);
+
+    const show = await User.findOne({ roll: req.body.roll });
+    console.log(show);
+
+    if (show == null)
+      throw createHttpError.BadRequest(
+        `${req.body.roll} is not present in your class`
+      );
+    res.send(show);
+    const result = Math.round(
+      (show.noofdayspresent / show.totalworkingdays) * 100
+    );
+    console.log(`you have the attendence percentage ${result}`);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
